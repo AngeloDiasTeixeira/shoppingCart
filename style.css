@@ -6,6 +6,7 @@
 
 body {
     background: rgb(248, 242, 242);
+    height: 100vh;
 }
 
 .itemsForSale {
