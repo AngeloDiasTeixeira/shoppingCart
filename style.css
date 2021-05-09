@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(248, 242, 242);
+}
+
+.itemsForSale {
+    margin: 25px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.itemForSale {
+    text-align: center;
+    width: 20%;
+}
+
+.itemForSale .itemForSaleImage {
+    width: 100%;
+}
+
+.itemForSale * {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.itemForSale button {
+    margin: 0 auto;
+    padding: 3px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.itemForSale .card {
+    padding: 5px;
+    background: white;
+    transition: box-shadow 0.5s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.itemForSale:hover > .card {
+    cursor: pointer;
+    box-shadow: 3px 3px 2px gray;
+}
+
+/*shopping cart*/
+
+.cartItemsRow {
+    margin: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.cartItems::before {
+    content: 'ShoppingCart';
+    margin-left: 13px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cartItems {
+    background: rgb(221, 191, 191);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.cartItemImage { grid-area: "cII"; width: 100%;}
+
+.cartItem {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 10px;
+}
+
+.cartItem > *:not(.cartItemImage) {
+    box-sizing: unset;
+    padding: 10px;
+    font-family: 'Nerko One', cursive;
+}
+
+.cartItemQuantity {
+    width: 20%;
+}
+
+.cartItemsTotalValue {
+    display: block;
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.cartItemsTotalValue::before {
+    content: 'Total Value: ';
+}
+
+.cartItemRemove {
+    background: red;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cartItemsColumnNames {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    margin-left: 15px;
+    justify-items: center;
+    margin-top: 10px;
+}
+
+.purchase {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgb(111, 111, 131);
+    color: white;
+}
