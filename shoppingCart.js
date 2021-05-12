@@ -60,7 +60,9 @@ function addItemToCart(itemImageSource, itemName, itemPrice) {
     var v = document.getElementsByClassName("cartItemsRow")[0].getElementsByClassName("cartItem");
     for (var i = 0; i < v.length; i++)
         if (itemName == v[i].getElementsByClassName("cartItemName")[0].innerText) {
-            alert("Item already on cart!");
+            v[i].getElementsByClassName("cartItemQuantity")[0].value = parseFloat(v[i].getElementsByClassName("cartItemQuantity")[0].value) + 1;
+            //alert("Item already on cart!");
+            updateCart();
             return;
         }
     var cartItem = document.createElement("div");
@@ -81,11 +83,16 @@ function addItemToCart(itemImageSource, itemName, itemPrice) {
 
 var purchase = document.getElementsByClassName("purchase")[0];
 purchase.addEventListener("click", purchaseFunction);
+//purchase.disabled = document.getElementsByClassName("cartItem").length == 0;
 
 function purchaseFunction(){
-    alert("Thank you for your purchase!");
-    var cartItems = document.getElementsByClassName("cartItem");
-    for(var i=0; i<cartItems.length; i++){
+    if(document.getElementsByClassName("cartItem").length == 0) {
+        alert("There are no items in the shopping cart for you to purhase!");
+        return;
+    }
+        alert("Thank you for your purchase!");
+        var cartItems = document.getElementsByClassName("cartItem");
+        for(var i=0; i<cartItems.length; i++){
         cartItems[i].remove();
         i--;
     }
